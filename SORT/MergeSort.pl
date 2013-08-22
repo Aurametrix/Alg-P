@@ -3,17 +3,40 @@
 use strict;
 use warnings;
 
+# aref is reference to array of strings or numbers
 sub mergesort_string
 {
 	my ($aref, $begin, $end)=@_;
 
 	my $size=$end-$begin;
 
+
 	if($size<2) {return;}
 	my $half=$begin+int($size/2);
 
 	mergesort_string($aref, $begin, $half);
 	mergesort_string($aref, $half, $end);
+
+	for(my $i=$begin; $i<$half; ++$i) {
+		if($$aref[$i] gt $$aref[$half]) {
+			my $v=$$aref[$i];
+			$$aref[$i]=$$aref[$half];
+
+			my $i=$half;
+			while($i<$end-1 && $$aref[$i+1] lt $v) {
+				($$aref[$i], $$aref[$i+1])=
+					($$aref[$i+1], $$aref[$i]);
+				++$i;
+			}
+			$$aref[$i]=$v;
+		}
+	}
+	# dereferencing  array \n",@{ $aref }
+    #  foreach (@{ $aref }) {
+	#    print " $_"
+	#  }
+	#print "\n";
+
 }	
 
 sub mergesort_number
@@ -21,7 +44,8 @@ sub mergesort_number
 	my ($aref, $begin, $end)=@_;
 
 	my $size=$end-$begin;
-
+	
+	
 	if($size<2) {return;}
 	my $half=$begin+int($size/2);
 
@@ -42,6 +66,11 @@ sub mergesort_number
 			$$aref[$i]=$v;
 		}
 	}
+
+     #foreach (@{ $aref }) {
+	 #   print " $_"
+	 #}
+	 #print "\n";
 }
 	
 sub msort_string
