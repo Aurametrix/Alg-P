@@ -50,6 +50,7 @@ my %hash
     );
 
 push ( @array, 6 );
+pop (@array);
 print "plain array: ", @array;
 $hash{$key2} = $value;
 
