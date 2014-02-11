@@ -19,7 +19,7 @@ sub solve_maze {
  
     # list of directories we have not taken yet and need to get back to  
     my @queue = ($me);
-    # all routes we have found
+    # all routes found
     my %route = ($me => [$me]); 
     my @routes_to_dest;
   
@@ -42,4 +42,4 @@ sub solve_maze {
 
 
 my %route =(36=>[31],31=>[30,22],30=>[20],22=>[20,8],20=>[1],8=>[5],5=>[2],2=>[1,20]);
-solve_maze();
+solve_maze(2,2);
