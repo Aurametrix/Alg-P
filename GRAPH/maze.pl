@@ -16,14 +16,18 @@ sub solve_maze {
     my $dest = $_[1];
   
     return ($me) if $me eq $dest;
-  
+ 
+    # list of directories we have not taken yet and need to get back to  
     my @queue = ($me);
+    # all routes we have found
     my %route = ($me => [$me]); 
+    my @routes_to_dest;
   
     while(my $ob = shift @queue) {
   
       foreach my $i (@{$ob->neighbors()}) {
   
+      #  log all routes found, not merely the first
       push @routes_to_dest, [ @{$route{$ob}}, $i ] if($i eq $dest);
    
         if(!$route{$i}) {
