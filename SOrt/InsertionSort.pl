@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use feature ':5.12';
 
 sub insertion_sort {
     my (@list) = @_;
@@ -42,3 +43,9 @@ foreach my $arg (@ARGV) {
 
 my @a = insertion_sort(@ARGV);
 print "@a\n";
+
+say "and here is my example:";
+my @a = map int rand 100, 1 .. $ARGV[0] || 10;
+say "@a";
+@a = insertion_sort(@a);
+say "@a";

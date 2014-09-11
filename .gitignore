@@ -1,6 +1,7 @@
 blib/
 .build/
 _build/
+.DS_Store
 cover_db/
 inc/
 Build
