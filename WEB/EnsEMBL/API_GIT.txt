@@ -1,0 +1,129 @@
+ftp://ftp.ebi.ac.uk/pub/databases/ensembl/Helpdesk/API_GIT_video_script.txt
+http://www.ensembl.org/info/docs/api
+
+other data samples:
+ftp://ftp.broadinstitute.org/pub/
+ftp://ftp.broadinstitute.org/pub/ExAC_release
+
+
+You need to have Perl installed in order to use the API
+
+##CMD LINE##
+perl -v
+##CMD LINE##
+
+Use a version of Perl that is at least 5.14. You will also need DBI and DBD::mysql installed to allow Perl to work with our MySQL databases. 
+(eg: cpan DBD::mysql)
+
+Create a directory for the Ensembl API modules:
+
+##CMD LINE##
+cd ~
+mkdir src
+cd src
+##CMD LINE##
+
+Download BioPerl - at least BioPerl 1.2.3 - from GitHub using the command wget, unzip it and rename the directory.
+
+check:
+##CMD LINE##
+wget https://github.com/bioperl/bioperl-live/archive/bioperl-release-1-2-3.zip
+unzip bioperl-release-1-2-3.zip
+mv bioperl-live-bioperl-release-1-2-3 bioperl-1.2.3
+ls
+##CMD LINE##
+
+GIT INSTALLATION
+
+If you have Git installed you can use it to download the Ensembl packages you need. Test: 
+##CMD##
+git --version
+##CMD##
+
+##OUTPUT##
+git version 1.9.3 (Apple Git-50)
+##OUTPUT##
+
+Run 5 clones; one per Ensembl project and one for the Ensembl tools.
+
+##CMD##
+git clone https://github.com/Ensembl/ensembl.git
+
+git clone https://github.com/Ensembl/ensembl-variation.git
+
+git clone https://github.com/Ensembl/ensembl-compara.git
+
+git clone https://github.com/Ensembl/ensembl-funcgen.git
+
+git clone https://github.com/Ensembl/ensembl-tools.git
+##CMD##
+
+Cloned Ensembl projects will always check you out onto our latest stable release. Ensembl offers an alternative system called the Ensembl Git Tools which automates this cloning process. These are available from GitHub at https://github.com/Ensembl/ensembl-git-tools.
+
+TAR BALL INSTALLATION
+
+After downloading BioPerl we need to download the API tar ball from FTP. This tar ball contains all the required APIs. The file is quite large and will take a significant amount of time to download.
+
+##CMD##
+wget ftp://ftp.ensembl.org/pub/ensembl-api.tar.gz
+##CMD##
+
+Once we have downloaded the API tar ball we need to decompress it. To do this we will use the command tar. Once the command finishes we will have five new directories present.
+
+##CMD##
+tar zxf ensembl-api.tar.gz
+ls
+##CMD##
+
+— END OF TAR BALL INSTALLATION
+
+Now all we have to do is tell Perl where to find the modules. We will add the modules onto the PERL5LIB environment variable. How we do this will depend on your command line shell. Check your shell using this command.
+
+##CMD##
+echo $SHELL
+##CMD##
+##OUTPUT##
+bash
+##OUTPUT##
+
+If shell is bash add the following lines to your .profile file:
+##CMD##
+nano ~/.profile
+export PERL5LIB=$HOME/src/ensembl/modules:$PERL5LIB
+export PERL5LIB=$HOME/src/ensembl-variation/modules:$PERL5LIB
+export PERL5LIB=$HOME/src/ensembl-compara/modules:$PERL5LIB
+export PERL5LIB=$HOME/src/ensembl-funcgen/modules:$PERL5LIB
+export PERL5LIB=$HOME/src/ensembl-tools/modules:$PERL5LIB
+export PERL5LIB=$HOME/src/bioperl-1.2.3/:$PERL5LIB
+##CMD##
+
+Once you have finished editing use Ctrl+o and press Return to write the new file out. Now press Ctrl+x to exit from nano.
+
+If your shell is csh or tsch you will need to add the following lines to your .cshrc.
+
+##CMD##
+nano ~/.cshrc
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/bioperl-1.2.3
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/ensembl/modules
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/ensembl-compara/modules
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/ensembl-variation/modules
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/ensembl-funcgen/modules
+setenv PERL5LIB ${PERL5LIB}:${HOME}/src/ensembl-tools/modules
+##CMD##
+
+Now source the file you've just edited. And test the installation. We will source the bash file.
+
+##CMD##
+source ~/.profile
+##CMD##
+
+Change into the ensembl misc-scripts directory and run ping_ensembl.pl
+
+##CMD
+cd ~/src
+cd ensembl
+cd misc-scripts
+./ping_ensembl.pl
+##CMD
+
+You should see the 'installation is good' message. If there dis anything wrong with the installation the script will give suggestions on how to fix the issue. You can also follow our "Debugging Ensembl API Connections" guide at "http://www.ensembl.org/info/docs/api/debug_installation_guide.html".
