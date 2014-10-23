@@ -1,0 +1,344 @@
+Perl interview questions posted by Anusha Srinivasan
+
+1.Explain Perl. When do you use Perl for programming? What are the advantages of programming in Perl?
+2. What factors do you take into consideration to decide if Perl is a suitable programming language for a situation?
+3. How would you ensure the re-use and maximum readability of your Perl code?
+4. What is the importance of Perl warnings? How do you turn them on?
+5. Differentiate between Use and Require, My and Local, For and Foreach and Exec and System
+6. Situation : You are required to replace a char in a string and store the number of replacements. How would you do that?
+7. Situation: You want to concatenate strings with Perl. How would you do that?
+8. Situation - There are some duplicate entries in an array and you want to remove them. How would you do that?
+9. What is the use of command "use strict"?
+10. Explain the arguments for Perl Interpreter.
+11. What would happen if you prefixed some variables with following symbols?
+12. What is the use of a.) -w b.) Strict c.) -T.?
+13. Explain: a.) Subroutine b.) Perl one-liner c.) Lists d.) iValue
+14. Situation: You want to concatenate strings with Perl. How would you do that?
+15. Situation: You want to download the contents of a URL with Perl. How would you do that?
+16. Situation: You want to connect to SQL Server through Perl. How would you do that?
+17. Situation - You want to open and read data files with Perl. How would you do that?
+18. Explain the different types of data Perl can handle.
+19. Explain different types of Perl Operators.
+20. Situation: You want to add two arrays together. How would you do that?
+21. Situation: You want to empty an array. How would you do that?
+22. Situation: You want to read command-line arguements with Perl. How would you do that?
+23. Situation: You want to print the contents of an entire array. How would you do that?
+24. Explain: Grooving and shortening of arrays and Splicing of arrays
+25. Explain: a.) Goto label b.) Goto name c.) Goto expr
+26. There are two types of eval statements i.e. eval EXPR and eval BLOCK. Explain them.
+27. Explain returning values from subroutines.
+28. What are prefix dereferencer? List them.
+29. Explain "grep" function.
+30. Differentiate between C++ and Perl.
+31. Explain: Chomp, Chop, CPAN, TK
+
+Explain Perl. When do you use Perl for programming? What are the advantages of programming in Perl?
+
+About PERL:
+
+PERL is Practical Extraction and Reporting language, which is a high level programming language written by Larry Wall. The more recent expansion is Pathologically Eclectic Rubbish Lister . 
+
+PERL is a free open source language.
+
+It is simple to learn as its syntax is similar to C
+
+It supports OOP – Object oriented programming like C++
+
+Unlike C/ C++ it is a lot more flexible in usage
+
+When do we use PERL for Programming:
+
+Generally PERL is used to develop web based applications even though libraries are available to program web server applications, database interfaces and networking components. Example: The popular e-commerce site www.amazon.com was developed with PERL.
+
+Advantages of programming in Perl
+
+As mentioned above, PERL 
+-is easier to understand due to its simple syntax
+-is easier to use due to its flexibility
+-supports OOP 
+-is easily readable
+
+What factors do you take into consideration to decide if Perl is a suitable programming language for a situation?
+
+If the project requires OOP programming but requires faster execution
+
+If the application to be developed is web based, Perl provides a lot of flexibility in programming such applications and is most popularly used.
+
+Cost – As PERL is free, we can save on the cost of acquiring license for the programming language.
+
+If the deadline is near, we can use CPAN, the Comprehensive Perl Archive Network, which is one of the largest repositories of free code in the world. If you need a particular type of functionality, chances are there are several options on the CPAN, and there are no fees or ongoing costs for using it.
+
+How would you ensure the re-use and maximum readability of your Perl code?
+
+modularize code and include them where required using the “use” command
+
+use subroutines or functions to segregate operations thereby making the code more readable
+
+use objects to create programs wherever possible which greatly promotes code reuse
+
+include appropriate comments as and when required
+
+eliminate any dereferencing operator
+
+What is the importance of Perl warnings? How do you turn them on?
+
+Warnings are one of the most basic ways in which you can get Perl to check the quality of the code that you have produced. Mandatory warnings highlight problems in the lexical analysis stage. Optional warnings highlight cases of possible anomaly.
+
+The traditional way of enabling warnings was to use the -w argument on the
+command line:
+perl -w myscript.pl
+You can also supply the option within the "shebang" line:
+#/usr/local/bin/perl -w
+
+You can also mention use warnings with all, deprecated and unsafe options.
+Eg: use warnings 'all';
+
+Differentiate between Use and Require, My and Local, For and Foreach and Exec and System
+
+Use and Require
+
+Both the Use and Require statements are used while importing modules.
+
+A require statement imports functions only within their packages. The use statement imports functions with a global scope so that their functions and objects can be accessed directly.
+
+Eg. Require module;
+Var = module::method(); //method called with the module reference
+
+Eg: use module;
+Var = method(); //method can be called directly
+
+-Use statements are interpreted and are executed during the parsing whereas the require statements are executed during run time thereby supporting dynamic selection of modules.
+
+My and Local
+
+A variable declared with the My statement is scoped within the current block. The variable and its value goes out of scope outside the block whereas a local statement is used to temporarily assign a value to the global variable inside the block. The variable used with local statement still has global accessibility but the value lasts only as long as the control is inside the block.
+
+For and Foreach
+
+The for statement has an initialization, condition check and increment expressions in its body and is used for general iterations performing operations involving a loop. The foreach statement is particularly used to iterate through arrays and runs for the length of the array.
+
+Exec and System
+
+Exec command is used to execute a system command directly which does not return to the calling script unless if the command specified does not exist and System command is used to run a subcommand as part of a Perl script.
+
+i.e The exec command stops the execution of the current process and starts the execution of the new process and does not return back to the stopped process. But the system command, holds the execution of the current process, forks a new process and continues with the execution of the command specified and returns back to the process on hold to continue execution.
+
+Situation : You are required to replace a char in a string and store the number of replacements. How would you do that?
+
+#!usr/bin/perl
+use strict;
+use warnings;
+my $mainstring="APerlAReplAFunction";
+my $count = ($mainstring =~ tr/A//);
+print "There are $count As in the given string\n";
+print $mainstring;
+
+Situation: You want to concatenate strings with Perl. How would you do that?
+
+By using the dot operator which concatenates strings in Perl.
+Eg. $string = “My name is”.$name
+
+Situation - There are some duplicate entries in an array and you want to remove them. How would you do that?
+
+If duplicates need to be removed, the best way is to use a hash.
+Eg:
+
+sub uniqueentr {
+return keys %{{ map { $_ => 1 } @_ }};
+}
+@array1 = ("tea","coffee","tea","cola”,"coffee");
+print join(" ", @array1), "\n";
+print join(" ", uniqueentr(@array1)), "\n";
+
+What is the use of command "use strict"?
+
+Use strict command calls the strict pragma and is used to force checks on definition and usage of variables, references and other barewords used in the script. If unsafe or ambiguous statements are used, this command stops the execution of the script instead of just providing warnings.
+
+Explain the arguments for Perl Interpreter.
+
+-a - automatically splits a group of input files
+-c - checks the syntax of the script without executing it
+-d - invokes the PERL debugger after the script is compiled
+-d:module - script is compiled and control is transferred to the module specified.
+-d - The command line is interpreted as single line script
+-S - uses the $PATH env variable to locate the script
+-T - switches on Taint mode
+-v - prints the version and path level of the interpreter
+-w - prints warnings
+
+What would happen if you prefixed some variables with following symbols?
+
+i.) $ - The variable becomes a scalar variable which can hold one value only
+ii.) @ - The variable becomes an array variable which can hold a list of scalar variables
+iii.) % - The variable becomes a hash variable which stores values as key-value pairs
+
+What is the use of following?
+
+i.) –w
+When used gives out warnings about the possible interpretation errors in the script.
+
+ii.) Strict
+Strict is a pragma which is used to force checks on the definition and usage of variables, references and other barewords used in the script. This can be invoked using the use strict command. If there are any unsafe or ambiguous commands in the script, this pragma stops the execution of the script instead of just giving warnings.
+
+iii.) -T.
+When used, switches on taint checking which forces Perl to check the origin of variables where outside variables cannot be used in system calls and subshell executions.
+
+Explain: a.) Subroutine b.) Perl one-liner c.) Lists d.) iValue
+
+a.) Subroutine
+
+Subroutines are named blocks of code that accept arguments, perform required operation and return values. In PERL, the terms subroutine and function are used interchangeably. Syntax for defining subroutine: sub NAME or sub NAME PROTOTYPE ATTRIBUTES to be specific where prototype and attributes are optional. PROTOTYPE is the prototype of the arguments that the subroutine takes in and ATTRIBUTES are the attributes that the subroutine exhibits.
+
+b.) Perl one-liner
+
+One-liners are one command line only programs (may contain more than one perl statements) that are used to accomplish an operation. They are called so because the program can be typed and executed from the command line immediately.
+Eg:
+# run program, but with warnings 
+perl -w my_file
+# run program under debugger 
+perl -d my_file
+
+c.) Lists
+
+Lists are special type of arrays that hold a series of values. Lists can either be explicitly generated by the user using a paranthesis and comma to separate the values or can be a value returned by a function when evaluated in list context.
+
+d.) iValue
+
+An ivalue is a scalar value that can be used to store the result of any expression. Ivalues appear in the left hand side of the expression and usually represents a data space in memory.
+
+Situation: You want to concatenate strings with Perl. How would you do that?
+
+By using the dot operator which concatenates strings in Perl.
+Eg. $string = “My name is”.$name
+
+Situation: You want to download the contents of a URL with Perl. How would you do that?
+
+- Use use the libwww-perl library, LWP.pm
+- #!/usr/bin/perl
+use LWP::Simple;
+$url = get 'http://www.DevDaily.com/';
+
+Situation: You want to connect to SQL Server through Perl. How would you do that?
+
+Perl supports access to all of the major database systems through a number of extensions
+provided through the DBI toolkit, a third-party module available from CPAN. Under Windows you can use either the DBI interfaces or the Win32::ODBC toolkit, which provides direct access to any ODBC-compliant database including SQL Server database products.
+Using DBI: 
+use DBI;
+my $dbh = DBI->connect(DSN);
+Using ODBC:
+Use Win32::ODBC;
+$database = new Win32::ODBC("DSN" [, CONNECT_OPTION, ...]);
+
+Situation - You want to open and read data files with Perl. How would you do that?
+
+open FILEHANDLE - used to open data files and filehandle points to the file that is opened
+read FILEHANDLE, SCALAR, LENGTH - used to read from filehandle of length LENGTH and the result is placed in SCALAR.
+close FILEHANDLE - closes file after reading is complete.
+
+Explain the different types of data Perl can handle.
+
+- Scalars : store single values and are preceded by $ sign
+- Arrays: store a list of scalar values and are preceded by @ sign
+- Hashes: store associative arrays which use a key value as index instead of numerical indexes. Use % as prefix.
+
+Explain different types of Perl Operators.
+
+-Arithmetic operators, +, - ,* etc
+-Assignment operators: += , -+, *= etc 
+-Increment/ decrement operators: ++, --
+-String concatenation: ‘.’ operator 
+-comparison operators: ==, !=, >, < , >= etc
+-Logical operators: &&, ||, !
+
+Situation: You want to add two arrays together. How would you do that?
+
+@sumarray = (@arr1,@arr2);
+We can also use the push function to accomplish the same.
+
+Situation: You want to empty an array. How would you do that?
+
+-by setting its length to any –ve number, generally -1
+-by assigning null list
+
+Situation: You want to read command-line arguements with Perl. How would you do that?
+
+In Perl, command line arguments are stored in an array @ARGV. Hence $ARGV[0] gives the first argument $ARGV[1] gives the second argument and so on. $#ARGV is the subscript of the last element of the @ARGV array, so the number of arguments on the command line is $#ARGV + 1.
+
+Situation: You want to print the contents of an entire array. How would you do that?
+
+Step 1: Get the size of the array using the scalar context on the array. Eg. @array = (1,2,3);
+print ; "Size: ",scalar @array,"\n";
+Step 2: Iterate through the array using a for loop and print each item.
+
+Explain: Grooving and shortening of arrays and Splicing of arrays
+
+a.)Grooving and shortening of arrays.
+Grooving and shortening of arrays can be done by directly giving a non existent index to which Perl automatically adjusts the array size as needed.
+
+b.)Splicing of arrays
+Splicing copies and removes or replaces elements from the array using the position specified in the splice function instead of just extracting into another array.
+Syntax: splice ARRAY, OFFSET, LENGTH, LIST
+
+Explain: a.) Goto label b.) Goto name c.) Goto expr
+
+a.) Goto label
+
+In the case of goto LABEL, execution stops at the current point and resumes at the point of the label specified. It cannot be used to jump to a point inside a subroutine or loop.
+
+
+b.) Goto name
+
+The goto &NAME statement is more complex. It allows you to replace the currently executing subroutine with a call to the specified subroutine instead.
+This allows you to automatically call a different subroutine based on the current environment and is used to dynamically select alternative routines. 
+
+
+c.) Goto expr
+
+Goto expr is just an extended form of goto LABEL. Perl expects the expression to evaluate dynamically at execution time to a label by name
+
+There are two types of eval statements i.e. eval EXPR and eval BLOCK. Explain them.
+
+When Eval is called with EXPR, the contents of the expression will be parsed and interpreted every time the Eval function is called.
+
+With Eval BLOCK, the contents are parsed and compiled along with the rest of
+the script, but the actual execution only takes place when the eval statement is reached. Because the code is parsed at the time of compilation of the rest of the script, the BLOCK form cannot be used to check for syntax errors in a piece of dynamically generated code.
+
+Explain returning values from subroutines.
+
+Values can be returned by a subroutine using an explicit return statement. Otherwise it would be the value of the last expression evaluated.
+
+What are prefix dereferencer? List them.
+
+When we dereference a variable using particular prefix, they are called prefix dereference. 
+
+(i) $-Scalar variables
+(ii) %-Hash variables
+(iii) @-arrays
+(iv) &-subroutines
+(v) Type globs-*myvar stands for @myvar, %myvar.
+
+Explain "grep" function.
+
+The grep function evaluates an expr or a block for each element of the List. For each statement that returns true, it adds that element to the list of returning values.
+
+Differentiate between C++ and Perl.
+
+-C++ does not allow closures while Perl does
+-C++ allows pointer arithmetic but Perl does not allow pointer arithmetic
+
+Explain: Chomp, Chop, CPAN, TK
+
+Chomp
+
+A Chomp function removes the last character from an expr or each element of list if it matches the value of $/. This is considered to be safer than Chop as this removes only if there is a match.
+
+Chop
+A Chop function removes the last character from EXPR, each element of list.
+
+CPAN 
+
+CPAN is the Comprehensive Perl Archive Network, a large collection of Perl software and documentation. CPAN.pm is also a module in Perl which is used to download and install Perl software from the CPAN archive. 
+
+TK
+
+TK is an open source tool kit that is used to build web based applications using Perl.
