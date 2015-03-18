@@ -1,0 +1,42 @@
+10 print "number?"
+20 input N
+30 For F=1 tp N-2
+40 IF (N/F)<>INT(N/F)
+50 T=T+F
+60 NEXT F
+70 If N=T THAN A$="YES" : ELSE A$="NO"
+80 Ptint N, |PERFECT? ", A$
+90 GOTO 10
+
+
+# use the Test::Simple module
+# make some tests
+# pass results to ok() - it reports and also keeps tarck
+# Test::Harness parses the results of the file and reports back
+
+# module Perfect.pm
+# has a function is_perfect()
+
+
+is_perfect.t
+
+#!/usr/bin/perl -w
+use Test::Simple tests=>2
+
+use Perfect;
+
+ok( is_perfect(6), "6 is perfect");
+ok( !is_perfect(7), "but 7 is not");
+
+# 1..2
+# ok 1 - 6 is perfect
+# ok 2 - but 7 is not
+
+### Running Test::HArness
+# Test::HArness is a module, not a program
+# Create your own wrapper around it
+
+#!/usr/bin/perl
+use Test::Harness qw(&runtests);
+@tests = @ARGV ? @ARGV : <*.t>
+tuntests @tests;
