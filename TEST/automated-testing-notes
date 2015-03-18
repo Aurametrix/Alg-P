@@ -40,3 +40,20 @@ ok( !is_perfect(7), "but 7 is not");
 use Test::Harness qw(&runtests);
 @tests = @ARGV ? @ARGV : <*.t>
 tuntests @tests;
+
+### Test:More
+# Everything is a wrapper around ok()
+# All tests can be done with ok(), but why?
+# Most helper functions take a message
+
+# Use the messages
+# - Messages document
+# - Messages help to find tests
+
+### diag()
+# adds comments to output
+# printed with a "#" in front
+# Ignored by Test::HArness
+
+diag( "Checking for foo" );
+# Checking for foo
