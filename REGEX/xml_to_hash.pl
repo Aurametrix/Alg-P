@@ -5,12 +5,14 @@
 
 use strict;
 use XML::Simple;
-# use Data::Dumper;
+use Data::Dumper;
 
 my $booklist = XMLin('examples/booklist.xml');
 
 foreach my $book (@{$booklist->{book}}) {
-	print $book->{title} . "\n";
+	if ($book->{type} eq 'technical') {
+		print $book->{title} . "\n";
+	}
 }
 
 # using  KeyAttr => {book => 'isbn'} to tell the parser to create
