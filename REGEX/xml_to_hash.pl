@@ -5,8 +5,14 @@
 
 use strict;
 use XML::Simple;
-use Data::Dumper;
+# use Data::Dumper;
 
-my $booklist = XMLin('booklist.xml');
+#my $booklist = XMLin('examples/booklist.xml');
 
-print Dumper($booklist);
+# using  KeyAttr => {book => 'isbn'} to tell the parser to create
+# a data structure that uses the isbn element as a lookup key
+my $booklist = XMLin('examples/booklist.xml', KeyAttr => {book => 'isbn'});
+
+#print Dumper($booklist);
+
+print $booklist->{book}->{Book2ISBN}->{title} . "\n";
