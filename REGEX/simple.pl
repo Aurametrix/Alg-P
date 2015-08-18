@@ -33,3 +33,13 @@ if ($mystring =~ m/($regex)/) {
 $mystring =~ s/hello/Goodbye/i;
 print $mystring;
 print "\n";
+
+# Perl 5.8
+$string = "I am a string";
+$string =~ s/ a / another /; # makes "I am a string" into "I am another string"
+print $string;
+
+# in Perl 5.14+, you can return a new substituted string without altering the original string:
+$string = "I am a string";
+$string2 = $string =~ s/ a / another /r; # $string2 == "I am another string", $string is unaltered
+print $string2;
