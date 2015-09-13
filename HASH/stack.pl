@@ -29,3 +29,6 @@ print "@stuff\n";     # Bar Moo
 # unshift will place a value at the beginning of the array moving all to the right.
 unshift @stuff, 'Yes';
 print "@stuff\n";     # Yes -- followed by the array
+
+# Returns whether the stack is empty, e.g. length is zero
+sub empty{ not @_ }
