@@ -26,3 +26,6 @@ perlbrew is a tool to manage multiple perl installations in your $HOME directory
     otp <padfile> <plaintext|ciphertext>  undef$/;print<>^<>
     ...
     
+
+
+[2018 Conference](https://perlconference.us/tpc-2018-slc/)
