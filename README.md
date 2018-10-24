@@ -29,3 +29,4 @@ perlbrew is a tool to manage multiple perl installations in your $HOME directory
 
 
 [2018 Conference](https://perlconference.us/tpc-2018-slc/)
+[Perl 11](http://perl11.org/)
