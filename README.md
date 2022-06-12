@@ -31,5 +31,5 @@ perlbrew is a tool to manage multiple perl installations in your $HOME directory
 [2018 Conference](https://perlconference.us/tpc-2018-slc/)
 [Perl 11](http://perl11.org/)
 [The reports of Perl’s death have been greatly exaggerated](https://phoenixtrap.com/2021/10/19/the-reports-of-perls-death-have-been-greatly-exaggerated/)
-
+[Perl 6 Grammars, Part 1](https://www.perl.com/article/perl-6-grammers-part-1/)
 [What happened to Perl 7?](http://blogs.perl.org/users/psc/2022/05/what-happened-to-perl-7.html) - [hn thread](https://news.ycombinator.com/item?id=31515787)
