@@ -39,3 +39,5 @@ perlbrew is a tool to manage multiple perl installations in your $HOME directory
       In October 2019, Perl 6 was rensmed to Raku
 
 [exiftool](https://exiftool.org/) -  platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a wide variety of files
+
+[Perl vs Java](https://rant.li/ashwin/perl-versus-java)
