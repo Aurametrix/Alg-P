@@ -41,3 +41,6 @@ perlbrew is a tool to manage multiple perl installations in your $HOME directory
 [exiftool](https://exiftool.org/) -  platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a wide variety of files
 
 [Perl vs Java](https://rant.li/ashwin/perl-versus-java)
+
+[Higher order Perl](https://hop.perl.plover.com/)
+[Books about programming](https://prog21.dadgum.com/19.html)
